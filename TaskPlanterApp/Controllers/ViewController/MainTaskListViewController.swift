@@ -24,7 +24,13 @@ class MainTaskListViewController: UIViewController {
     @IBAction func addButtonTapped(_ sender: UIBarButtonItem) {
     }
     
-
+    @IBAction func toEditTaskLongPressed(_ sender: UILongPressGestureRecognizer) {
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        guard let editTaskViewController = storyboard.instantiateViewController(identifier: "editTaskViewController") as? EditTaskViewController else { return }
+        
+        navigationController?.present(editTaskViewController, animated: true)
+    }
+    
     // MARK: - Navigation
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation

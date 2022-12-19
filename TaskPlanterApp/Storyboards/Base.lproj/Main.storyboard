@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="21507" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="n4m-SL-qye">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="21507" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="f2L-wA-zuA">
     <device id="retina6_12" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21505"/>
@@ -18,60 +18,86 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="a5T-ax-4EM">
-                                <rect key="frame" x="0.0" y="59" width="393" height="225"/>
+                                <rect key="frame" x="0.0" y="103" width="393" height="225"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="225" id="BAv-Mj-92W"/>
                                 </constraints>
                             </imageView>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="sEi-4m-PjL">
-                                <rect key="frame" x="145" y="373.66666666666669" width="103" height="35"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <gestureRecognizers/>
-                                <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="plain" title="GrowPlant"/>
-                                <connections>
-                                    <action selector="growPlantTapped:" destination="n4m-SL-qye" eventType="touchUpInside" id="XBE-G5-vyo"/>
-                                    <outletCollection property="gestureRecognizers" destination="OXQ-m6-DAd" appends="YES" id="Lhu-Dx-t6u"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Bnu-az-7wi">
-                                <rect key="frame" x="87" y="563.66666666666663" width="49.666666666666657" height="34.333333333333371"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Bnu-az-7wi">
+                                <rect key="frame" x="84" y="556" width="49.666666666666657" height="34.333333333333371"/>
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="plain" image="circle" catalog="system" title=""/>
                                 <connections>
                                     <action selector="isCompleteButtonTapped:" destination="n4m-SL-qye" eventType="touchUpInside" id="lCC-o0-n2g"/>
                                 </connections>
                             </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QEm-uP-u9N">
-                                <rect key="frame" x="170" y="570" width="126" height="21"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Some Task Here" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QEm-uP-u9N">
+                                <rect key="frame" x="133" y="563" width="126" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wsY-9B-9z3">
-                                <rect key="frame" x="112" y="464" width="168" height="35"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <colorWell contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="QpI-k2-Ly2">
+                                <rect key="frame" x="182" y="619" width="28" height="28"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="28" id="eRE-dA-Mie"/>
+                                </constraints>
+                            </colorWell>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cws-Vi-1O1">
+                                <rect key="frame" x="145" y="680" width="103" height="35"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" title="SegueTest"/>
+                                <connections>
+                                    <action selector="segueTest:" destination="n4m-SL-qye" eventType="touchUpInside" id="gzf-TJ-dnZ"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="sEi-4m-PjL">
+                                <rect key="frame" x="118" y="404" width="156" height="35"/>
+                                <gestureRecognizers/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" title="GrowPlant"/>
+                                <connections>
+                                    <action selector="growPlantTapped:" destination="n4m-SL-qye" eventType="touchUpInside" id="XBE-G5-vyo"/>
+                                    <outletCollection property="gestureRecognizers" destination="7GM-BG-sm5" appends="YES" id="B2n-79-DLB"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wsY-9B-9z3">
+                                <rect key="frame" x="112" y="473" width="168" height="35"/>
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="plain" title="unGrowPlant"/>
                                 <connections>
                                     <action selector="unGrowPlantTapped:" destination="n4m-SL-qye" eventType="touchUpInside" id="25p-RT-CCg"/>
                                 </connections>
                             </button>
-                            <colorWell contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="QpI-k2-Ly2">
-                                <rect key="frame" x="182" y="664" width="28" height="28"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            </colorWell>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="hfE-oP-OWh"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
+                            <constraint firstItem="QpI-k2-Ly2" firstAttribute="leading" secondItem="hfE-oP-OWh" secondAttribute="leading" constant="182" id="2M1-MH-zU7"/>
+                            <constraint firstItem="wsY-9B-9z3" firstAttribute="leading" secondItem="hfE-oP-OWh" secondAttribute="leading" constant="112" id="2cj-X2-MaQ"/>
+                            <constraint firstItem="cws-Vi-1O1" firstAttribute="top" secondItem="QpI-k2-Ly2" secondAttribute="bottom" constant="33" id="9FR-rU-4Nn"/>
                             <constraint firstItem="a5T-ax-4EM" firstAttribute="leading" secondItem="hfE-oP-OWh" secondAttribute="leading" id="9ks-f4-JSy"/>
+                            <constraint firstItem="sEi-4m-PjL" firstAttribute="centerX" secondItem="a5T-ax-4EM" secondAttribute="centerX" id="BT6-Sp-OHA"/>
+                            <constraint firstItem="Bnu-az-7wi" firstAttribute="centerY" secondItem="QEm-uP-u9N" secondAttribute="centerY" id="FTD-F8-MrZ"/>
+                            <constraint firstItem="QEm-uP-u9N" firstAttribute="leading" secondItem="hfE-oP-OWh" secondAttribute="leading" constant="133" id="I4K-KS-qgu"/>
+                            <constraint firstItem="Bnu-az-7wi" firstAttribute="firstBaseline" secondItem="QEm-uP-u9N" secondAttribute="firstBaseline" id="I7G-wW-0yK"/>
+                            <constraint firstItem="QpI-k2-Ly2" firstAttribute="top" secondItem="QEm-uP-u9N" secondAttribute="bottom" constant="35" id="L3o-z1-77f"/>
+                            <constraint firstItem="hfE-oP-OWh" firstAttribute="bottom" secondItem="cws-Vi-1O1" secondAttribute="bottom" constant="103" id="PI6-hD-1F8"/>
                             <constraint firstItem="hfE-oP-OWh" firstAttribute="trailing" secondItem="a5T-ax-4EM" secondAttribute="trailing" id="R35-5P-awz"/>
+                            <constraint firstItem="Bnu-az-7wi" firstAttribute="top" secondItem="wsY-9B-9z3" secondAttribute="bottom" constant="48" id="Wvv-Iq-xQA"/>
+                            <constraint firstItem="QpI-k2-Ly2" firstAttribute="centerX" secondItem="cws-Vi-1O1" secondAttribute="centerX" id="ZOg-qG-Eie"/>
+                            <constraint firstItem="Bnu-az-7wi" firstAttribute="leading" secondItem="hfE-oP-OWh" secondAttribute="leading" constant="84" id="b0N-Pg-AvN"/>
+                            <constraint firstItem="wsY-9B-9z3" firstAttribute="top" secondItem="sEi-4m-PjL" secondAttribute="bottom" constant="34" id="blf-aS-2Ap"/>
+                            <constraint firstItem="sEi-4m-PjL" firstAttribute="leading" secondItem="hfE-oP-OWh" secondAttribute="leading" constant="118" id="ibI-D3-FLT"/>
+                            <constraint firstItem="wsY-9B-9z3" firstAttribute="centerX" secondItem="QEm-uP-u9N" secondAttribute="centerX" id="kDW-gq-g9W"/>
+                            <constraint firstItem="hfE-oP-OWh" firstAttribute="bottom" secondItem="Bnu-az-7wi" secondAttribute="bottom" constant="227.66666666666663" id="sNU-Kz-Ngv"/>
+                            <constraint firstItem="sEi-4m-PjL" firstAttribute="centerX" secondItem="wsY-9B-9z3" secondAttribute="centerX" id="u1j-Yu-uPW"/>
                             <constraint firstItem="a5T-ax-4EM" firstAttribute="top" secondItem="hfE-oP-OWh" secondAttribute="top" id="vNi-je-HxQ"/>
+                            <constraint firstItem="QEm-uP-u9N" firstAttribute="centerX" secondItem="QpI-k2-Ly2" secondAttribute="centerX" id="x4E-A0-OGF"/>
+                            <constraint firstItem="Bnu-az-7wi" firstAttribute="baseline" secondItem="QEm-uP-u9N" secondAttribute="firstBaseline" id="zIl-bD-So8"/>
                         </constraints>
                     </view>
+                    <navigationItem key="navigationItem" id="XGP-11-SDK"/>
                     <connections>
                         <outlet property="colorPickerTapped" destination="QpI-k2-Ly2" id="I6P-rj-Edb"/>
                         <outlet property="isCompleteButton" destination="Bnu-az-7wi" id="aha-9H-CiM"/>
@@ -80,45 +106,56 @@
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="FhN-we-lhL" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-                <pongPressGestureRecognizer allowableMovement="10" minimumPressDuration="0.5" id="OXQ-m6-DAd">
+                <pongPressGestureRecognizer allowableMovement="10" minimumPressDuration="0.5" id="7GM-BG-sm5">
                     <connections>
-                        <action selector="longPressGrowPlant:" destination="n4m-SL-qye" id="asz-eH-9Po"/>
+                        <action selector="longPressSegue:" destination="n4m-SL-qye" id="nid-ex-Zhz"/>
                     </connections>
                 </pongPressGestureRecognizer>
             </objects>
-            <point key="canvasLocation" x="4" y="1049"/>
+            <point key="canvasLocation" x="690.83969465648852" y="1058.4507042253522"/>
         </scene>
         <!--Long Press Segue View Controller-->
         <scene sceneID="paB-n3-tnL">
             <objects>
-                <viewController storyboardIdentifier="longPressSegueViewController" id="0Jq-Qr-e2k" customClass="LongPressSegueViewController" customModule="TaskPlanterApp" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="longPressSegueViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="0Jq-Qr-e2k" customClass="LongPressSegueViewController" customModule="TaskPlanterApp" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Ix8-nD-fW0">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="You have successfully segued into another view via long press and code!" textAlignment="natural" lineBreakMode="wordWrap" numberOfLines="15" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1fT-g5-kSy">
-                                <rect key="frame" x="0.0" y="59" width="393" height="759"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="66"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="l2S-C2-6WY">
+                                <rect key="frame" x="146" y="297" width="101" height="35"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" title="Bell"/>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dpe-ey-uYK">
+                                <rect key="frame" x="158" y="340" width="76" height="35"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" title="Lily"/>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kNA-4B-97P">
+                                <rect key="frame" x="134" y="254" width="125" height="35"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" title="Cactus"/>
+                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="Lgq-Em-dMk"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
-                            <constraint firstItem="1fT-g5-kSy" firstAttribute="bottom" secondItem="Lgq-Em-dMk" secondAttribute="bottom" id="2Ia-6C-Tgq"/>
-                            <constraint firstItem="1fT-g5-kSy" firstAttribute="leading" secondItem="Lgq-Em-dMk" secondAttribute="leading" id="807-hH-NVs"/>
-                            <constraint firstItem="1fT-g5-kSy" firstAttribute="top" secondItem="Lgq-Em-dMk" secondAttribute="top" id="Q5I-uL-ZqW"/>
-                            <constraint firstItem="1fT-g5-kSy" firstAttribute="trailing" secondItem="Lgq-Em-dMk" secondAttribute="trailing" id="QHw-Qw-aEc"/>
+                            <constraint firstItem="l2S-C2-6WY" firstAttribute="centerX" secondItem="dpe-ey-uYK" secondAttribute="centerX" id="87M-pw-ozK"/>
+                            <constraint firstItem="kNA-4B-97P" firstAttribute="top" secondItem="Lgq-Em-dMk" secondAttribute="top" constant="195" id="Dwo-Le-OGv"/>
+                            <constraint firstItem="l2S-C2-6WY" firstAttribute="leading" secondItem="Lgq-Em-dMk" secondAttribute="leading" constant="146" id="JOn-yH-07k"/>
+                            <constraint firstItem="kNA-4B-97P" firstAttribute="leading" secondItem="Lgq-Em-dMk" secondAttribute="leading" constant="134" id="Qn9-GR-LgY"/>
+                            <constraint firstItem="dpe-ey-uYK" firstAttribute="top" secondItem="l2S-C2-6WY" secondAttribute="bottom" constant="8" symbolic="YES" id="SYL-dl-OL8"/>
+                            <constraint firstItem="kNA-4B-97P" firstAttribute="centerX" secondItem="l2S-C2-6WY" secondAttribute="centerX" id="UIl-yf-C7i"/>
+                            <constraint firstItem="l2S-C2-6WY" firstAttribute="top" secondItem="kNA-4B-97P" secondAttribute="bottom" constant="8" symbolic="YES" id="ixy-bo-sge"/>
+                            <constraint firstItem="dpe-ey-uYK" firstAttribute="leading" secondItem="Lgq-Em-dMk" secondAttribute="leading" constant="158" id="lkV-Or-Pbq"/>
+                            <constraint firstItem="dpe-ey-uYK" firstAttribute="centerX" secondItem="Ix8-nD-fW0" secondAttribute="centerX" id="nBH-mm-n4a"/>
                         </constraints>
                     </view>
-                    <connections>
-                        <outlet property="SuccessLabel" destination="1fT-g5-kSy" id="mcX-xi-sXV"/>
-                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="6P2-ag-MYL" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="867.93893129770993" y="1048.5915492957747"/>
+            <point key="canvasLocation" x="1397.709923664122" y="1058.4507042253522"/>
         </scene>
         <!--Add Task View Controller-->
         <scene sceneID="WCx-yn-Yjc">
@@ -134,7 +171,7 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
-                            <datePicker contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="dateAndTime" minuteInterval="1" translatesAutoresizingMaskIntoConstraints="NO" id="FEU-MX-KgD">
+                            <datePicker contentMode="center" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="dateAndTime" minuteInterval="1" style="compact" translatesAutoresizingMaskIntoConstraints="NO" id="FEU-MX-KgD">
                                 <rect key="frame" x="0.0" y="212" width="393" height="108"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
                             </datePicker>
@@ -288,14 +325,18 @@
                     </navigationItem>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="H4p-PW-B0o" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-                <pongPressGestureRecognizer allowableMovement="10" minimumPressDuration="0.5" id="cRO-zo-ZT6"/>
+                <pongPressGestureRecognizer allowableMovement="10" minimumPressDuration="0.5" id="cRO-zo-ZT6">
+                    <connections>
+                        <action selector="toEditTaskLongPressed:" destination="CP1-ln-fpn" id="UV7-bP-VIv"/>
+                    </connections>
+                </pongPressGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="423.66412213740455" y="-26.056338028169016"/>
         </scene>
         <!--Edit Task View Controller-->
         <scene sceneID="Ipm-wu-e8y">
             <objects>
-                <viewController id="EiW-nT-p0o" customClass="EditTaskViewController" customModule="TaskPlanterApp" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="editTaskViewController" id="EiW-nT-p0o" customClass="EditTaskViewController" customModule="TaskPlanterApp" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="XZz-9a-eVN">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -369,7 +410,25 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="P4A-J7-WC2" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-537" y="-26"/>
+            <point key="canvasLocation" x="-505" y="-26"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="jnW-k4-vvZ">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="f2L-wA-zuA" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="kEq-oQ-XXY">
+                        <rect key="frame" x="0.0" y="59" width="393" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="n4m-SL-qye" kind="relationship" relationship="rootViewController" id="OTe-8P-VXz"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="bca-MG-KZe" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-45" y="1059"/>
         </scene>
     </scenes>
     <resources>

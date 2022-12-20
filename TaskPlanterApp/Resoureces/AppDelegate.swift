@@ -13,7 +13,18 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
-        // Override point for customization after application launch.
+        
+        let takOutTheTrash = Task(isDone: false, taskContent: "Take out the trash", taskColor: "Blue", dueDate: Date(), completedDate: Date())
+        
+//        TaskController.sharedInstance.saveTask(task: takOutTheTrash) { result in
+//            switch result {
+//            case .success(let success):
+//                print("Record was successfully saved \(success)")
+//            case .failure(let failure):
+//                print("Record was not successfully saved \(failure.localizedDescription)")
+//            }
+//        }
+
         return true
     }
 

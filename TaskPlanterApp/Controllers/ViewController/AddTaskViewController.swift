@@ -23,6 +23,20 @@ class AddTaskViewController: UIViewController {
     
     // MARK - Action Outlets
     @IBAction func saveButtonTapped(_ sender: Any) {
+        
+        let newTaskToBeSaved = Task(isDone: false, taskContent: taskTextField.text ?? "", taskColor: "Blue", dueDate: datePicker.date, completedDate: Date())
+        
+        TaskController.sharedInstance.saveTask(task: newTaskToBeSaved) { result in
+            DispatchQueue.main.async {
+                switch result {
+                case .success(let success):
+                    self.dismiss(animated: true)
+                    print("Record was successfully saved \(String(describing: success))")
+                case .failure(let failure):
+                    print("Record was not successfully saved \(failure.localizedDescription)")
+                }
+            }
+        }
     }
     
 

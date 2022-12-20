@@ -22,10 +22,10 @@ struct TaskConstants {
 class Task: Identifiable {
 
     var isDone: Bool = false
-    let taskContent: String
-    let taskColor: String
-    let dueDate: Date
-    let completedDate: Date
+    var taskContent: String
+    var taskColor: String
+    var dueDate: Date
+    var completedDate: Date
     let ckRecordID: CKRecord.ID
     
     init(isDone: Bool, taskContent: String, taskColor: String, dueDate: Date, completedDate: Date, ckRecordID: CKRecord.ID = CKRecord.ID(recordName: UUID().uuidString)) {
@@ -41,6 +41,9 @@ class Task: Identifiable {
 // MARK - CKRecord Extension
 
 extension CKRecord {
+    /**
+     Packaging our Task model properties to be stored in a CKRecord and saved to the cloud. Due to our Task model not being a supported Data Type for CKRecord, we need to wrap the model in a format that CKRecord can take.
+     */
     convenience init(task: Task) {
         self.init(recordType: TaskConstants.recordTypeKey, recordID: task.ckRecordID)
         self.setValuesForKeys([
@@ -57,6 +60,9 @@ extension CKRecord {
 // MARK - Extension for Convenience Initializer
 
 extension Task {
+    /**
+     Taking a retrieved CKRecord and pulling out the values found to initialize our Task model
+     */
     convenience init?(ckRecord: CKRecord) {
         guard let isDone = ckRecord[TaskConstants.isDoneKey] as? Bool,
               let taskContent = ckRecord[TaskConstants.taskContentKey] as? String,

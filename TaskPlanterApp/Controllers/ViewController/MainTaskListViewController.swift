@@ -26,13 +26,7 @@ class MainTaskListViewController: UIViewController {
     // MARK - Action Outlets
     
     @IBAction func addButtonTapped(_ sender: UIBarButtonItem) {
-    }
-    
-    @IBAction func toEditTaskLongPressed(_ sender: UILongPressGestureRecognizer) {
-        let storyboard = UIStoryboard(name: "Main", bundle: nil)
-        guard let editTaskViewController = storyboard.instantiateViewController(identifier: "editTaskViewController") as? EditTaskViewController else { return }
         
-        navigationController?.present(editTaskViewController, animated: true)
     }
     
     func loadData(){
@@ -52,6 +46,14 @@ class MainTaskListViewController: UIViewController {
             self.taskListTableView.reloadData()
         }
     }
+    
+    func moveToEditView() {
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        guard let editTaskViewController = storyboard.instantiateViewController(identifier: "editTaskViewController") as? EditTaskViewController else { return }
+        
+        navigationController?.present(editTaskViewController, animated: true)
+    }
+    
 }
 
 extension MainTaskListViewController: UITableViewDelegate, UITableViewDataSource {
@@ -61,21 +63,22 @@ extension MainTaskListViewController: UITableViewDelegate, UITableViewDataSource
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        //            UITableViewCell()
-        //             you might need to rename "taskCell" to "taskTableViewCell"
+
         guard let cell = tableView.dequeueReusableCell(withIdentifier: "taskCell", for: indexPath) as? TaskTableViewCell else { return UITableViewCell() }
         
         let task = TaskController.sharedInstance.tasks[indexPath.row]
         // this sets the cell textLabel equal to the taskContent
         cell.configure(with: task)
         // add the dueDate
-        
-        
         return cell
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         50
     }
+    
+}
+
+extension MainTaskListViewController : UIGestureRecognizerDelegate {
     
 }

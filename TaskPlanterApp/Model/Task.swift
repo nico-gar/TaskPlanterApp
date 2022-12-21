@@ -8,6 +8,7 @@
 import Foundation
 import CloudKit
 
+
 struct TaskConstants {
     static let isDoneKey = "isDone"
     static let taskContentKey = "taskContent"

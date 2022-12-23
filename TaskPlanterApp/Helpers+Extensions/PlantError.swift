@@ -1,13 +1,13 @@
 //
-//  TaskError.swift
+//  PlantError.swift
 //  TaskPlanterApp
 //
-//  Created by Nicolas Garaycochea on 12/14/22.
+//  Created by Nicolas Garaycochea on 12/22/22.
 //
 
 import Foundation
 
-enum TaskError: LocalizedError {
+enum PlantError: LocalizedError {
     case ckError(Error)
     case couldNotUnwrap
     case couldNotFetch

@@ -29,8 +29,17 @@ class MainTaskListViewController: UIViewController {
         
     }
     
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "editTaskViewController",
+           let indexPath = taskListTableView.indexPathForSelectedRow,
+           let destination = segue.destination as? EditTaskViewController{
+            let task = TaskController.sharedTask.tasks[indexPath.row]
+            destination.task = task
+        }
+    }
+    
     func loadData(){
-        TaskController.sharedInstance.fetchTasks { result in
+        TaskController.sharedTask.fetchTasks { result in
             switch result {
             case .success(let success):
                 self.updateViews()
@@ -59,17 +68,20 @@ class MainTaskListViewController: UIViewController {
 extension MainTaskListViewController: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return TaskController.sharedInstance.tasks.count
+        return TaskController.sharedTask.tasks.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-
+        
         guard let cell = tableView.dequeueReusableCell(withIdentifier: "taskCell", for: indexPath) as? TaskTableViewCell else { return UITableViewCell() }
         
-        let task = TaskController.sharedInstance.tasks[indexPath.row]
+        let task = TaskController.sharedTask.tasks[indexPath.row]
         // this sets the cell textLabel equal to the taskContent
         cell.configure(with: task)
         // add the dueDate
+        // MARK - cell UI edits
+
+        // cell UI edits END
         return cell
     }
     
@@ -77,8 +89,41 @@ extension MainTaskListViewController: UITableViewDelegate, UITableViewDataSource
         50
     }
     
+    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+        if editingStyle == .delete {
+            let task = TaskController.sharedTask.tasks[indexPath.row]
+            guard let index = TaskController.sharedTask.tasks.firstIndex(of: task) else { return }
+            
+            //            TaskController.sharedTask.publicDB.delete(withRecordID: task.ckRecordID) { _, error in
+            //                if let error = error {
+            //                    print(error.localizedDescription)
+            //                }
+            //                DispatchQueue.main.async {
+            //                    TaskController.sharedTask.tasks.remove(at: index)
+            //                    self.taskListTableView.deleteRows(at: [indexPath], with: .fade)
+            //                }
+            //            }
+            
+            // idea 2
+            TaskController.sharedTask.deleteTask(task: task) { result in
+                switch result {
+                case .success(_):
+                    DispatchQueue.main.async {
+                        TaskController.sharedTask.tasks.remove(at: index)
+                        self.taskListTableView.deleteRows(at: [indexPath], with: .fade)
+                    }
+                    
+                case .failure(let error):
+                    print("Error in \(#function) : \(error.localizedDescription) \n---\n \(error)")
+                }
+            }
+        } else if editingStyle == .insert {
+            // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view.
+        }
+    }
+    
 }
-
+// long press gesture can go here for later updates
 extension MainTaskListViewController : UIGestureRecognizerDelegate {
     
 }

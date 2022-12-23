@@ -26,7 +26,7 @@ class AddTaskViewController: UIViewController {
         
         let newTaskToBeSaved = Task(isDone: false, taskContent: taskTextField.text ?? "", taskColor: "Blue", dueDate: datePicker.date, completedDate: Date())
         
-        TaskController.sharedInstance.saveTask(task: newTaskToBeSaved) { result in
+        TaskController.sharedTask.saveTask(task: newTaskToBeSaved) { result in
             DispatchQueue.main.async {
                 switch result {
                 case .success(let success):

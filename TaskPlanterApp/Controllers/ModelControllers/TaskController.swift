@@ -11,7 +11,7 @@ import CloudKit
 class TaskController {
     // MARK - Properties
     
-    static let sharedInstance = TaskController()
+    static let sharedTask = TaskController()
     
     //Source of truth
     var tasks: [Task] = []
@@ -62,10 +62,10 @@ class TaskController {
             case .success(let (matchResults, _)):
                 // Compact map (or loop) through the found records to return the non-nil Task objects compact map loops through the array of objects.
                 let fetchedTasks: [Task] = matchResults.compactMap { recordID, result in switch result {
-                // if successful unwrap the found records
+                    // if successful unwrap the found records
                 case .success(let record):
                     return Task(ckRecord: record)
-                // Handle the optional error
+                    // Handle the optional error
                 case .failure(let error):
                     print("Error in \(#function) : \(error.localizedDescription) \n---\n \(error)")
                     return nil }
@@ -74,7 +74,7 @@ class TaskController {
                 self.tasks = fetchedTasks
                 completion(.success(fetchedTasks))
                 print("Fetched all Tasks")
-            // Handle the optional error
+                // Handle the optional error
             case .failure(let error):
                 print("Error in \(#function) : \(error.localizedDescription) \n---\n \(error)")
                 completion(.failure(TaskError.couldNotFetch))
@@ -86,9 +86,56 @@ class TaskController {
     func editTask(){
         
     }
-    
-    func deleteTask(){
-        
-    }
+    // v1
+    //    func deleteTask(recordID: CKRecord.ID, completion: @escaping (Result<CKRecord.ID, TaskError>) -> ()){
+    //        CKContainer.default().publicCloudDatabase.delete(withRecordID: recordID) { (recordID, error) in
+    //            if let error = error {
+    //                print("Error in \(#function) : \(error.localizedDescription) \n---\n \(error)")
+    //                completion(.failure(.ckError(error)))
+    //                return
+    //            }
+    //            guard let recordID = recordID else {
+    //                completion(.failure(TaskError.couldNotDelete))
+    //                return
+    //            }
+    //            completion(.success(recordID))
+    //        }
+    //    }
+    //v2
+        func deleteTask(task: Task, completion: @escaping (Result<Bool, TaskError>) -> ()){
+            let operation = CKModifyRecordsOperation(recordsToSave: nil, recordIDsToDelete: [task.ckRecordID])
+
+                    operation.savePolicy = .changedKeys
+                    operation.qualityOfService = .userInteractive
+
+                    //IF AVAILABLE
+                    if #available(iOS 15.0, *) {
+                        operation.modifyRecordsResultBlock = { result in
+                            //result is either Void or Error...same logic applies
+                            switch result {
+                            case .success():
+                                return completion(.success(true))
+                            case .failure(let error):
+                                return completion(.failure(.ckError(error)))
+                            }
+                        }
+                    } else {
+                        //ELSE
+                        operation.modifyRecordsCompletionBlock = {(records, recordIDs, error) in
+                            if let error = error {
+                                return completion(.failure(.ckError(error)))
+                            }
+
+                            if records?.count == 0 {
+                                print("Record was successfully deleted from CloudKit")
+                                completion(.success(true))
+                            } else {
+                                return completion(.failure(.couldNotDelete))
+                            }
+                        }
+                    }//END ELSE
+
+                    publicDB.add(operation)
+        }
     
 } // End of Class

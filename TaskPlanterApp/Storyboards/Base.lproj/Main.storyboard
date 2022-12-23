@@ -28,7 +28,7 @@
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="plain" image="circle" catalog="system" title=""/>
                                 <connections>
-                                    <action selector="isCompleteButtonTapped:" destination="n4m-SL-qye" eventType="touchUpInside" id="lCC-o0-n2g"/>
+                                    <action selector="prototypeIsCompleteButtonTapped:" destination="n4m-SL-qye" eventType="touchUpInside" id="m0A-XE-mi8"/>
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Some Task Here" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QEm-uP-u9N">
@@ -99,10 +99,10 @@
                     </view>
                     <navigationItem key="navigationItem" id="XGP-11-SDK"/>
                     <connections>
-                        <outlet property="colorPickerTapped" destination="QpI-k2-Ly2" id="I6P-rj-Edb"/>
-                        <outlet property="isCompleteButton" destination="Bnu-az-7wi" id="aha-9H-CiM"/>
-                        <outlet property="plantImageView" destination="a5T-ax-4EM" id="IoD-ky-O79"/>
-                        <outlet property="taskLabel" destination="QEm-uP-u9N" id="3rN-zM-IT4"/>
+                        <outlet property="prototypeColorPickerTapped" destination="QpI-k2-Ly2" id="gPX-h2-Zxc"/>
+                        <outlet property="prototypeIsCompleteButton" destination="Bnu-az-7wi" id="12Z-mO-dF1"/>
+                        <outlet property="prototypePlantImageView" destination="a5T-ax-4EM" id="wf8-kW-7na"/>
+                        <outlet property="prototypeTaskLabel" destination="QEm-uP-u9N" id="p0t-R9-x7r"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="FhN-we-lhL" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -222,7 +222,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="apx-7g-Ji5" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1398" y="354"/>
+            <point key="canvasLocation" x="1540" y="-316"/>
         </scene>
         <!--Main Task List View Controller-->
         <scene sceneID="yYb-KH-6qg">
@@ -299,6 +299,7 @@
                                             <outlet property="dueDateLabel" destination="dGV-sV-xBJ" id="I1F-UZ-3xD"/>
                                             <outlet property="isDoneButton" destination="ssG-OM-OJH" id="fDg-K4-HGi"/>
                                             <outlet property="taskContentLabel" destination="iWG-ub-4iH" id="EW7-6a-W0z"/>
+                                            <segue destination="EiW-nT-p0o" kind="presentation" id="OUG-6L-IuY"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
@@ -337,7 +338,7 @@
             <objects>
                 <viewController storyboardIdentifier="editTaskViewController" id="EiW-nT-p0o" customClass="EditTaskViewController" customModule="TaskPlanterApp" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="XZz-9a-eVN">
-                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="783"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="qn3-zt-HJV">
@@ -391,7 +392,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Lgq-At-Skj" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1398" y="-333"/>
+            <point key="canvasLocation" x="1540" y="354"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="Zlb-05-qBM">

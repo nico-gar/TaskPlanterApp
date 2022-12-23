@@ -72,6 +72,12 @@ extension Task {
               let completedDate = ckRecord[TaskConstants.completedDateKey] as? Date
         else { return nil }
         
-        self.init(isDone: isDone, taskContent: taskContent, taskColor: taskColor, dueDate: dueDate, completedDate: completedDate)
+        self.init(isDone: isDone, taskContent: taskContent, taskColor: taskColor, dueDate: dueDate, completedDate: completedDate, ckRecordID: ckRecord.recordID)
     }
 }// End of Extension
+
+extension Task: Equatable {
+    static func == (lhs:Task, rhs:Task) -> Bool {
+        return lhs.ckRecordID == rhs.ckRecordID
+    }
+}

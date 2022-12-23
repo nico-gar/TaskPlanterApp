@@ -24,6 +24,7 @@
 		1C44C3FF294D059400FA8569 /* TaskTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C44C3FE294D059400FA8569 /* TaskTableViewCell.swift */; };
 		1C44C401294D1A4000FA8569 /* EditTaskViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C44C400294D1A4000FA8569 /* EditTaskViewController.swift */; };
 		1C44C403294D1BDA00FA8569 /* LongPressSegueViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C44C402294D1BDA00FA8569 /* LongPressSegueViewController.swift */; };
+		1C44C4052954CCA000FA8569 /* PlantError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C44C4042954CCA000FA8569 /* PlantError.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -47,6 +48,7 @@
 		1C44C3FE294D059400FA8569 /* TaskTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskTableViewCell.swift; sourceTree = "<group>"; };
 		1C44C400294D1A4000FA8569 /* EditTaskViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditTaskViewController.swift; sourceTree = "<group>"; };
 		1C44C402294D1BDA00FA8569 /* LongPressSegueViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LongPressSegueViewController.swift; sourceTree = "<group>"; };
+		1C44C4042954CCA000FA8569 /* PlantError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlantError.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -161,6 +163,7 @@
 			isa = PBXGroup;
 			children = (
 				1C44C3F1294AA20600FA8569 /* TaskError.swift */,
+				1C44C4042954CCA000FA8569 /* PlantError.swift */,
 				1C44C3F8294BD6CC00FA8569 /* DateExtension.swift */,
 			);
 			path = "Helpers+Extensions";
@@ -250,6 +253,7 @@
 				1C44C403294D1BDA00FA8569 /* LongPressSegueViewController.swift in Sources */,
 				1C44C3F2294AA20600FA8569 /* TaskError.swift in Sources */,
 				1C44C3BF294A2AEF00FA8569 /* Plant.swift in Sources */,
+				1C44C4052954CCA000FA8569 /* PlantError.swift in Sources */,
 				1C44C3B72948C2AF00FA8569 /* Task.swift in Sources */,
 				1C44C39D2948C0D100FA8569 /* AppDelegate.swift in Sources */,
 				1C44C3FD294CEBDF00FA8569 /* AddTaskViewController.swift in Sources */,

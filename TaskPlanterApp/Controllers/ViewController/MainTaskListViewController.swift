@@ -8,7 +8,7 @@
 import UIKit
 
 class MainTaskListViewController: UIViewController {
-    
+    var isDoneCount = 0
     // MARK - Outlets
     @IBOutlet weak var plantImage: UIImageView!
     @IBOutlet weak var taskListTableView: UITableView!
@@ -18,9 +18,12 @@ class MainTaskListViewController: UIViewController {
         loadData()
         taskListTableView.delegate = self
         taskListTableView.dataSource = self
+        // you put the cloudkit number in the \(isDoneCount)
+        plantImage.image = UIImage(named: "cactus_\(isDoneCount)")
         
         NotificationCenter.default.addObserver(self, selector: #selector(updateViews), name: Notification.Name("Reload table view notification"), object: nil)
-        
+        NotificationCenter.default.addObserver(self, selector: #selector(increasePlantStage), name: Notification.Name("isDoneCount plus 1"), object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(decreasePlantStage), name: Notification.Name("isDoneCount minus 1"), object: nil)
     }
     
     // MARK - Action Outlets
@@ -80,7 +83,7 @@ extension MainTaskListViewController: UITableViewDelegate, UITableViewDataSource
         cell.configure(with: task)
         // add the dueDate
         // MARK - cell UI edits
-
+        
         // cell UI edits END
         return cell
     }
@@ -93,18 +96,6 @@ extension MainTaskListViewController: UITableViewDelegate, UITableViewDataSource
         if editingStyle == .delete {
             let task = TaskController.sharedTask.tasks[indexPath.row]
             guard let index = TaskController.sharedTask.tasks.firstIndex(of: task) else { return }
-            
-            //            TaskController.sharedTask.publicDB.delete(withRecordID: task.ckRecordID) { _, error in
-            //                if let error = error {
-            //                    print(error.localizedDescription)
-            //                }
-            //                DispatchQueue.main.async {
-            //                    TaskController.sharedTask.tasks.remove(at: index)
-            //                    self.taskListTableView.deleteRows(at: [indexPath], with: .fade)
-            //                }
-            //            }
-            
-            // idea 2
             TaskController.sharedTask.deleteTask(task: task) { result in
                 switch result {
                 case .success(_):
@@ -124,6 +115,21 @@ extension MainTaskListViewController: UITableViewDelegate, UITableViewDataSource
     
 }
 // long press gesture can go here for later updates
-extension MainTaskListViewController : UIGestureRecognizerDelegate {
+extension MainTaskListViewController {
     
-}
+    // MARK - Plant Growth
+    
+    @objc func increasePlantStage(notification: Notification) {
+        if isDoneCount > 0 {
+            isDoneCount -= 1
+
+            plantImage.image = UIImage(named: "cactus_\(isDoneCount)")
+        }
+    }
+        @objc func decreasePlantStage(notification: Notification) {
+            if isDoneCount < 24 {
+                isDoneCount += 1
+                plantImage.image = UIImage(named: "cactus_\(isDoneCount)")
+            }
+        }
+    }

@@ -14,41 +14,21 @@ class TaskTableViewCell: UITableViewCell {
     @IBOutlet weak var dueDateLabel: UILabel!
     @IBOutlet weak var isDoneButton: UIButton!
     
-    var isDoneCount = 0
-    
     var isDone = false
     
     // MARK - Action Outlets
     
     @IBAction func isDoneButtonTapped(_ sender: UIButton) {
+
         print("Is done button tapped")
-//        if isDoneCount < 24 {
-//            if isDone == true {
-//                isDoneButton.setImage(UIImage(systemName: "circle"), for: .normal)
-//                isDone = false
-//                //
-//                if isDoneCount >= 0 {
-//                    isDoneCount -= 1
-//                }
-//                PlantImageView.image = UIImage(named: "cactus_\(isDoneCount)")
-//                //
-//            } else {
-//                isDoneButton.setImage(UIImage(systemName: "circle.fill"), for: .normal)
-//                isDone = true
-//                //
-//                if isDoneCount < 24 {
-//                    isDoneCount += 1
-//                }
-//                PlantImageView.image = UIImage(named: "cactus_\(isDoneCount)")
-//                //
-//            }
-//        }
-//        }
+
         if isDone == true {
+            NotificationCenter.default.post(name: Notification.Name("isDoneCount plus 1"), object: nil)
             isDoneButton.setImage(UIImage(systemName: "circle"), for: .normal)
             isDone = false
             
         } else {
+            NotificationCenter.default.post(name: Notification.Name("isDoneCount minus 1"), object: nil)
             isDoneButton.setImage(UIImage(systemName: "circle.fill"), for: .normal)
             isDone = true
             

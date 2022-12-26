@@ -10,7 +10,7 @@ import UIKit
 class EditTaskViewController: UIViewController {
 
     var task: Task?
-    
+        
     override func viewDidLoad() {
         super.viewDidLoad()
 

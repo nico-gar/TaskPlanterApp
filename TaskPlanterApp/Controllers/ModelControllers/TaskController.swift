@@ -45,6 +45,7 @@ class TaskController {
             print("new Task saved successfully")
             ///add Task to local SoT
             self.tasks.insert(savedTask, at: 0)
+            ///the save task function in the TaskController class triggers the NotificationCenter post which is sent to the NotificationCenter Observer in the MainTaskListViewController class and that triggers the updateviews function located in that class.
             NotificationCenter.default.post(name: Notification.Name("Reload table view notification"), object: nil)
             ///complete successfully with new Task object
             completion(.success(savedTask))
@@ -81,61 +82,81 @@ class TaskController {
             }
         }
         
+        
+        
+        func editTask(_ task: Task, completion: @escaping (Result<Task?, TaskError>) -> Void){
+            let record = CKRecord(task: task)
+            
+            let operation = CKModifyRecordsOperation(recordsToSave: [record], recordIDsToDelete: nil)
+            operation.savePolicy = .changedKeys
+            operation.qualityOfService = .userInteractive
+            
+            //IF AVAILABLE
+            if #available(iOS 15.0, *) {
+                operation.modifyRecordsResultBlock = { result in
+                    switch result {
+                        //result is Void or error
+                    case .success():
+                        //if success, just complete with task (or a string or a bool or whatever your success type is
+                        return completion(.success(task))
+                    case .failure(let error):
+                        //if failure, complete with error
+                        return completion(.failure(.ckError(error)))
+                    }
+                }
+            } else {
+                //ELSE
+                operation.modifyRecordsCompletionBlock = {(records, _, error) in
+                    if let error = error {
+                        return completion(.failure(.ckError(error)))
+                    }
+                    
+                    guard let record = records?.first,
+                          let updatedTask = Task(ckRecord: record) else {return completion(.failure(.couldNotUnwrap))}
+                    
+                    print("Updated '\(updatedTask)' successfully in the Cloud.")
+                    completion(.success(updatedTask))
+                }
+            } //END ELSE
+            
+            publicDB.add(operation)
+        }
     }
     
-    func editTask(){
+    func deleteTask(task: Task, completion: @escaping (Result<Bool, TaskError>) -> ()){
+        let operation = CKModifyRecordsOperation(recordsToSave: nil, recordIDsToDelete: [task.ckRecordID])
         
+        operation.savePolicy = .changedKeys
+        operation.qualityOfService = .userInteractive
+        
+        //IF AVAILABLE
+        if #available(iOS 15.0, *) {
+            operation.modifyRecordsResultBlock = { result in
+                //result is either Void or Error...same logic applies
+                switch result {
+                case .success():
+                    return completion(.success(true))
+                case .failure(let error):
+                    return completion(.failure(.ckError(error)))
+                }
+            }
+        } else {
+            //ELSE
+            operation.modifyRecordsCompletionBlock = {(records, recordIDs, error) in
+                if let error = error {
+                    return completion(.failure(.ckError(error)))
+                }
+                
+                if records?.count == 0 {
+                    print("Record was successfully deleted from CloudKit")
+                    completion(.success(true))
+                } else {
+                    return completion(.failure(.couldNotDelete))
+                }
+            }
+        }//END ELSE
+        
+        publicDB.add(operation)
     }
-    // v1
-    //    func deleteTask(recordID: CKRecord.ID, completion: @escaping (Result<CKRecord.ID, TaskError>) -> ()){
-    //        CKContainer.default().publicCloudDatabase.delete(withRecordID: recordID) { (recordID, error) in
-    //            if let error = error {
-    //                print("Error in \(#function) : \(error.localizedDescription) \n---\n \(error)")
-    //                completion(.failure(.ckError(error)))
-    //                return
-    //            }
-    //            guard let recordID = recordID else {
-    //                completion(.failure(TaskError.couldNotDelete))
-    //                return
-    //            }
-    //            completion(.success(recordID))
-    //        }
-    //    }
-    //v2
-        func deleteTask(task: Task, completion: @escaping (Result<Bool, TaskError>) -> ()){
-            let operation = CKModifyRecordsOperation(recordsToSave: nil, recordIDsToDelete: [task.ckRecordID])
-
-                    operation.savePolicy = .changedKeys
-                    operation.qualityOfService = .userInteractive
-
-                    //IF AVAILABLE
-                    if #available(iOS 15.0, *) {
-                        operation.modifyRecordsResultBlock = { result in
-                            //result is either Void or Error...same logic applies
-                            switch result {
-                            case .success():
-                                return completion(.success(true))
-                            case .failure(let error):
-                                return completion(.failure(.ckError(error)))
-                            }
-                        }
-                    } else {
-                        //ELSE
-                        operation.modifyRecordsCompletionBlock = {(records, recordIDs, error) in
-                            if let error = error {
-                                return completion(.failure(.ckError(error)))
-                            }
-
-                            if records?.count == 0 {
-                                print("Record was successfully deleted from CloudKit")
-                                completion(.success(true))
-                            } else {
-                                return completion(.failure(.couldNotDelete))
-                            }
-                        }
-                    }//END ELSE
-
-                    publicDB.add(operation)
-        }
     
 } // End of Class

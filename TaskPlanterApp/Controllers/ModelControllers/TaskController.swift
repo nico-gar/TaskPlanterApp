@@ -83,49 +83,54 @@ class TaskController {
         }
         
         
+    }
+    
+    func editTask(_ task: Task, completion: @escaping (Result<Task?, TaskError>) -> Void){
+        // Step 3 - Define the record/s to be updated
+        let record = CKRecord(task: task)
+        // Step 2 - Create the requisite operation
+        let operation = CKModifyRecordsOperation(recordsToSave: [record], recordIDsToDelete: nil)
+        // Step 4 - Set the properties for the operation
+        operation.savePolicy = .changedKeys
+        operation.qualityOfService = .userInteractive
         
-        func editTask(_ task: Task, completion: @escaping (Result<Task?, TaskError>) -> Void){
-            let record = CKRecord(task: task)
-            
-            let operation = CKModifyRecordsOperation(recordsToSave: [record], recordIDsToDelete: nil)
-            operation.savePolicy = .changedKeys
-            operation.qualityOfService = .userInteractive
-            
-            //IF AVAILABLE
-            if #available(iOS 15.0, *) {
-                operation.modifyRecordsResultBlock = { result in
-                    switch result {
-                        //result is Void or error
-                    case .success():
-                        //if success, just complete with task (or a string or a bool or whatever your success type is
-                        return completion(.success(task))
-                    case .failure(let error):
-                        //if failure, complete with error
-                        return completion(.failure(.ckError(error)))
-                    }
+        //IF AVAILABLE
+        if #available(iOS 15.0, *) {
+            operation.modifyRecordsResultBlock = { result in
+                switch result {
+                    //result is Void or error
+                case .success():
+                    //if success, just complete with task (or a string or a bool or whatever your success type is
+                    return completion(.success(task))
+                case .failure(let error):
+                    //if failure, complete with error
+                    print("Error in \(#function) : \(error.localizedDescription) \n---\n \(error)")
+                    return completion(.failure(.ckError(error)))
                 }
-            } else {
-                //ELSE
-                operation.modifyRecordsCompletionBlock = {(records, _, error) in
-                    if let error = error {
-                        return completion(.failure(.ckError(error)))
-                    }
-                    
-                    guard let record = records?.first,
-                          let updatedTask = Task(ckRecord: record) else {return completion(.failure(.couldNotUnwrap))}
-                    
-                    print("Updated '\(updatedTask)' successfully in the Cloud.")
-                    completion(.success(updatedTask))
+            }
+        } else {
+            //ELSE
+            operation.modifyRecordsCompletionBlock = {(records, _, error) in
+                if let error = error {
+                    print("Error in \(#function) : \(error.localizedDescription) \n---\n \(error)")
+                    return completion(.failure(.ckError(error)))
                 }
-            } //END ELSE
-            
-            publicDB.add(operation)
-        }
+                // Ensure that the records were returned and updated
+                guard let record = records?.first,
+                      let updatedTask = Task(ckRecord: record) else {return completion(.failure(.couldNotUnwrap))}
+                
+                print("Updated '\(updatedTask)' successfully in the Cloud.")
+                completion(.success(updatedTask))
+            }
+        } //END ELSE
+        // Step 1 - Add operation to the database
+        publicDB.add(operation)
     }
     
     func deleteTask(task: Task, completion: @escaping (Result<Bool, TaskError>) -> ()){
+        // Step 2 - Declared operation
         let operation = CKModifyRecordsOperation(recordsToSave: nil, recordIDsToDelete: [task.ckRecordID])
-        
+        // Step 3 - Set properties on the operation
         operation.savePolicy = .changedKeys
         operation.qualityOfService = .userInteractive
         
@@ -137,6 +142,7 @@ class TaskController {
                 case .success():
                     return completion(.success(true))
                 case .failure(let error):
+                    print("Error in \(#function) : \(error.localizedDescription) \n---\n \(error)")
                     return completion(.failure(.ckError(error)))
                 }
             }
@@ -144,6 +150,7 @@ class TaskController {
             //ELSE
             operation.modifyRecordsCompletionBlock = {(records, recordIDs, error) in
                 if let error = error {
+                    print("Error in \(#function) : \(error.localizedDescription) \n---\n \(error)")
                     return completion(.failure(.ckError(error)))
                 }
                 
@@ -155,7 +162,7 @@ class TaskController {
                 }
             }
         }//END ELSE
-        
+        // Step 1 - Add operation to the database
         publicDB.add(operation)
     }
     

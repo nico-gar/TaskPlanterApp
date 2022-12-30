@@ -9,154 +9,6 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Prototype View Controller-->
-        <scene sceneID="cOZ-SJ-XTs">
-            <objects>
-                <viewController id="n4m-SL-qye" customClass="prototypeViewController" customModule="TaskPlanterApp" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="JX9-rr-Tdf">
-                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="a5T-ax-4EM">
-                                <rect key="frame" x="0.0" y="103" width="393" height="225"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="225" id="BAv-Mj-92W"/>
-                                </constraints>
-                            </imageView>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Bnu-az-7wi">
-                                <rect key="frame" x="84" y="556" width="49.666666666666657" height="34.333333333333371"/>
-                                <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="plain" image="circle" catalog="system" title=""/>
-                                <connections>
-                                    <action selector="prototypeIsCompleteButtonTapped:" destination="n4m-SL-qye" eventType="touchUpInside" id="m0A-XE-mi8"/>
-                                </connections>
-                            </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Some Task Here" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QEm-uP-u9N">
-                                <rect key="frame" x="133" y="563" width="126" height="21"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <colorWell contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="QpI-k2-Ly2">
-                                <rect key="frame" x="182" y="619" width="28" height="28"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="28" id="eRE-dA-Mie"/>
-                                </constraints>
-                            </colorWell>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cws-Vi-1O1">
-                                <rect key="frame" x="145" y="680" width="103" height="35"/>
-                                <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="plain" title="SegueTest"/>
-                                <connections>
-                                    <action selector="segueTest:" destination="n4m-SL-qye" eventType="touchUpInside" id="gzf-TJ-dnZ"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="sEi-4m-PjL">
-                                <rect key="frame" x="118" y="404" width="156" height="35"/>
-                                <gestureRecognizers/>
-                                <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="plain" title="GrowPlant"/>
-                                <connections>
-                                    <action selector="growPlantTapped:" destination="n4m-SL-qye" eventType="touchUpInside" id="XBE-G5-vyo"/>
-                                    <outletCollection property="gestureRecognizers" destination="7GM-BG-sm5" appends="YES" id="B2n-79-DLB"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wsY-9B-9z3">
-                                <rect key="frame" x="112" y="473" width="168" height="35"/>
-                                <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="plain" title="unGrowPlant"/>
-                                <connections>
-                                    <action selector="unGrowPlantTapped:" destination="n4m-SL-qye" eventType="touchUpInside" id="25p-RT-CCg"/>
-                                </connections>
-                            </button>
-                        </subviews>
-                        <viewLayoutGuide key="safeArea" id="hfE-oP-OWh"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                        <constraints>
-                            <constraint firstItem="QpI-k2-Ly2" firstAttribute="leading" secondItem="hfE-oP-OWh" secondAttribute="leading" constant="182" id="2M1-MH-zU7"/>
-                            <constraint firstItem="wsY-9B-9z3" firstAttribute="leading" secondItem="hfE-oP-OWh" secondAttribute="leading" constant="112" id="2cj-X2-MaQ"/>
-                            <constraint firstItem="cws-Vi-1O1" firstAttribute="top" secondItem="QpI-k2-Ly2" secondAttribute="bottom" constant="33" id="9FR-rU-4Nn"/>
-                            <constraint firstItem="a5T-ax-4EM" firstAttribute="leading" secondItem="hfE-oP-OWh" secondAttribute="leading" id="9ks-f4-JSy"/>
-                            <constraint firstItem="sEi-4m-PjL" firstAttribute="centerX" secondItem="a5T-ax-4EM" secondAttribute="centerX" id="BT6-Sp-OHA"/>
-                            <constraint firstItem="Bnu-az-7wi" firstAttribute="centerY" secondItem="QEm-uP-u9N" secondAttribute="centerY" id="FTD-F8-MrZ"/>
-                            <constraint firstItem="QEm-uP-u9N" firstAttribute="leading" secondItem="hfE-oP-OWh" secondAttribute="leading" constant="133" id="I4K-KS-qgu"/>
-                            <constraint firstItem="Bnu-az-7wi" firstAttribute="firstBaseline" secondItem="QEm-uP-u9N" secondAttribute="firstBaseline" id="I7G-wW-0yK"/>
-                            <constraint firstItem="QpI-k2-Ly2" firstAttribute="top" secondItem="QEm-uP-u9N" secondAttribute="bottom" constant="35" id="L3o-z1-77f"/>
-                            <constraint firstItem="hfE-oP-OWh" firstAttribute="bottom" secondItem="cws-Vi-1O1" secondAttribute="bottom" constant="103" id="PI6-hD-1F8"/>
-                            <constraint firstItem="hfE-oP-OWh" firstAttribute="trailing" secondItem="a5T-ax-4EM" secondAttribute="trailing" id="R35-5P-awz"/>
-                            <constraint firstItem="Bnu-az-7wi" firstAttribute="top" secondItem="wsY-9B-9z3" secondAttribute="bottom" constant="48" id="Wvv-Iq-xQA"/>
-                            <constraint firstItem="QpI-k2-Ly2" firstAttribute="centerX" secondItem="cws-Vi-1O1" secondAttribute="centerX" id="ZOg-qG-Eie"/>
-                            <constraint firstItem="Bnu-az-7wi" firstAttribute="leading" secondItem="hfE-oP-OWh" secondAttribute="leading" constant="84" id="b0N-Pg-AvN"/>
-                            <constraint firstItem="wsY-9B-9z3" firstAttribute="top" secondItem="sEi-4m-PjL" secondAttribute="bottom" constant="34" id="blf-aS-2Ap"/>
-                            <constraint firstItem="sEi-4m-PjL" firstAttribute="leading" secondItem="hfE-oP-OWh" secondAttribute="leading" constant="118" id="ibI-D3-FLT"/>
-                            <constraint firstItem="wsY-9B-9z3" firstAttribute="centerX" secondItem="QEm-uP-u9N" secondAttribute="centerX" id="kDW-gq-g9W"/>
-                            <constraint firstItem="hfE-oP-OWh" firstAttribute="bottom" secondItem="Bnu-az-7wi" secondAttribute="bottom" constant="227.66666666666663" id="sNU-Kz-Ngv"/>
-                            <constraint firstItem="sEi-4m-PjL" firstAttribute="centerX" secondItem="wsY-9B-9z3" secondAttribute="centerX" id="u1j-Yu-uPW"/>
-                            <constraint firstItem="a5T-ax-4EM" firstAttribute="top" secondItem="hfE-oP-OWh" secondAttribute="top" id="vNi-je-HxQ"/>
-                            <constraint firstItem="QEm-uP-u9N" firstAttribute="centerX" secondItem="QpI-k2-Ly2" secondAttribute="centerX" id="x4E-A0-OGF"/>
-                            <constraint firstItem="Bnu-az-7wi" firstAttribute="baseline" secondItem="QEm-uP-u9N" secondAttribute="firstBaseline" id="zIl-bD-So8"/>
-                        </constraints>
-                    </view>
-                    <navigationItem key="navigationItem" id="XGP-11-SDK"/>
-                    <connections>
-                        <outlet property="prototypeColorPickerTapped" destination="QpI-k2-Ly2" id="gPX-h2-Zxc"/>
-                        <outlet property="prototypeIsCompleteButton" destination="Bnu-az-7wi" id="12Z-mO-dF1"/>
-                        <outlet property="prototypePlantImageView" destination="a5T-ax-4EM" id="wf8-kW-7na"/>
-                        <outlet property="prototypeTaskLabel" destination="QEm-uP-u9N" id="p0t-R9-x7r"/>
-                    </connections>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="FhN-we-lhL" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-                <pongPressGestureRecognizer allowableMovement="10" minimumPressDuration="0.5" id="7GM-BG-sm5">
-                    <connections>
-                        <action selector="longPressSegue:" destination="n4m-SL-qye" id="nid-ex-Zhz"/>
-                    </connections>
-                </pongPressGestureRecognizer>
-            </objects>
-            <point key="canvasLocation" x="690.83969465648852" y="1058.4507042253522"/>
-        </scene>
-        <!--Long Press Segue View Controller-->
-        <scene sceneID="paB-n3-tnL">
-            <objects>
-                <viewController storyboardIdentifier="longPressSegueViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="0Jq-Qr-e2k" customClass="LongPressSegueViewController" customModule="TaskPlanterApp" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="Ix8-nD-fW0">
-                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="l2S-C2-6WY">
-                                <rect key="frame" x="146" y="297" width="101" height="35"/>
-                                <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="plain" title="Bell"/>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dpe-ey-uYK">
-                                <rect key="frame" x="158" y="340" width="76" height="35"/>
-                                <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="plain" title="Lily"/>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kNA-4B-97P">
-                                <rect key="frame" x="134" y="254" width="125" height="35"/>
-                                <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="plain" title="Cactus"/>
-                            </button>
-                        </subviews>
-                        <viewLayoutGuide key="safeArea" id="Lgq-Em-dMk"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                        <constraints>
-                            <constraint firstItem="l2S-C2-6WY" firstAttribute="centerX" secondItem="dpe-ey-uYK" secondAttribute="centerX" id="87M-pw-ozK"/>
-                            <constraint firstItem="kNA-4B-97P" firstAttribute="top" secondItem="Lgq-Em-dMk" secondAttribute="top" constant="195" id="Dwo-Le-OGv"/>
-                            <constraint firstItem="l2S-C2-6WY" firstAttribute="leading" secondItem="Lgq-Em-dMk" secondAttribute="leading" constant="146" id="JOn-yH-07k"/>
-                            <constraint firstItem="kNA-4B-97P" firstAttribute="leading" secondItem="Lgq-Em-dMk" secondAttribute="leading" constant="134" id="Qn9-GR-LgY"/>
-                            <constraint firstItem="dpe-ey-uYK" firstAttribute="top" secondItem="l2S-C2-6WY" secondAttribute="bottom" constant="8" symbolic="YES" id="SYL-dl-OL8"/>
-                            <constraint firstItem="kNA-4B-97P" firstAttribute="centerX" secondItem="l2S-C2-6WY" secondAttribute="centerX" id="UIl-yf-C7i"/>
-                            <constraint firstItem="l2S-C2-6WY" firstAttribute="top" secondItem="kNA-4B-97P" secondAttribute="bottom" constant="8" symbolic="YES" id="ixy-bo-sge"/>
-                            <constraint firstItem="dpe-ey-uYK" firstAttribute="leading" secondItem="Lgq-Em-dMk" secondAttribute="leading" constant="158" id="lkV-Or-Pbq"/>
-                            <constraint firstItem="dpe-ey-uYK" firstAttribute="centerX" secondItem="Ix8-nD-fW0" secondAttribute="centerX" id="nBH-mm-n4a"/>
-                        </constraints>
-                    </view>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="6P2-ag-MYL" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="1397.709923664122" y="1058.4507042253522"/>
-        </scene>
         <!--Add Task View Controller-->
         <scene sceneID="WCx-yn-Yjc">
             <objects>
@@ -299,7 +151,7 @@
                                             <outlet property="dueDateLabel" destination="dGV-sV-xBJ" id="I1F-UZ-3xD"/>
                                             <outlet property="isDoneButton" destination="ssG-OM-OJH" id="fDg-K4-HGi"/>
                                             <outlet property="taskContentLabel" destination="iWG-ub-4iH" id="EW7-6a-W0z"/>
-                                            <segue destination="EiW-nT-p0o" kind="presentation" id="OUG-6L-IuY"/>
+                                            <segue destination="EiW-nT-p0o" kind="presentation" identifier="editTaskViewController" id="OUG-6L-IuY"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
@@ -364,6 +216,7 @@
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="plain" title="Edit"/>
                                 <connections>
+                                    <action selector="editTaskButtonTapped:" destination="EiW-nT-p0o" eventType="touchUpInside" id="LYZ-3h-9yU"/>
                                     <action selector="saveButtonTapped:" destination="6ps-Y0-Dcj" eventType="touchUpInside" id="d5o-ea-4EU"/>
                                 </connections>
                             </button>
@@ -389,6 +242,11 @@
                         <viewLayoutGuide key="safeArea" id="UOY-nq-ol7"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     </view>
+                    <connections>
+                        <outlet property="editColorPicker" destination="89H-Hz-fGE" id="U4h-s7-2Qe"/>
+                        <outlet property="editDatePicker" destination="Tfk-M6-cnf" id="371-pa-wt6"/>
+                        <outlet property="editTaskTextField" destination="qn3-zt-HJV" id="iND-NY-Q0F"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Lgq-At-Skj" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -411,24 +269,6 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="P4A-J7-WC2" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-505" y="-26"/>
-        </scene>
-        <!--Navigation Controller-->
-        <scene sceneID="jnW-k4-vvZ">
-            <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="f2L-wA-zuA" sceneMemberID="viewController">
-                    <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="kEq-oQ-XXY">
-                        <rect key="frame" x="0.0" y="59" width="393" height="44"/>
-                        <autoresizingMask key="autoresizingMask"/>
-                    </navigationBar>
-                    <nil name="viewControllers"/>
-                    <connections>
-                        <segue destination="n4m-SL-qye" kind="relationship" relationship="rootViewController" id="OTe-8P-VXz"/>
-                    </connections>
-                </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="bca-MG-KZe" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="-45" y="1059"/>
         </scene>
     </scenes>
     <resources>

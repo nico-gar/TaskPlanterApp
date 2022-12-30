@@ -17,13 +17,10 @@ class AddTaskViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
     }
     
     // MARK - Action Outlets
     @IBAction func saveButtonTapped(_ sender: Any) {
-        
         let newTaskToBeSaved = Task(isDone: false, taskContent: taskTextField.text ?? "", taskColor: "Blue", dueDate: datePicker.date, completedDate: Date())
         
         TaskController.sharedTask.saveTask(task: newTaskToBeSaved) { result in
@@ -38,17 +35,4 @@ class AddTaskViewController: UIViewController {
             }
         }
     }
-    
-
-    
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
 }

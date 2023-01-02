@@ -7,6 +7,7 @@
 
 import Foundation
 import CloudKit
+import UIKit
 
 class TaskController {
     // MARK - Properties
@@ -101,6 +102,7 @@ class TaskController {
                     //result is Void or error
                 case .success():
                     //if success, just complete with task (or a string or a bool or whatever your success type is
+                    NotificationCenter.default.post(name: Notification.Name("Reload table view notification"), object: nil)
                     return completion(.success(task))
                 case .failure(let error):
                     //if failure, complete with error
@@ -119,7 +121,8 @@ class TaskController {
                 guard let record = records?.first,
                       let updatedTask = Task(ckRecord: record) else {return completion(.failure(.couldNotUnwrap))}
                 
-                print("Updated '\(updatedTask)' successfully in the Cloud.")
+                print("Updated '\(updatedTask)' (\(record.recordID.recordName)) successfully in the Cloud.")
+                NotificationCenter.default.post(name: Notification.Name("Reload table view notification"), object: nil)
                 completion(.success(updatedTask))
             }
         } //END ELSE

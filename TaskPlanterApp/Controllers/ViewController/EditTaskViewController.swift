@@ -15,7 +15,7 @@ class EditTaskViewController: UIViewController {
     @IBOutlet weak var editColorPicker: UIColorWell!
     
     var task: Task?
-        
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         editTaskTextField.text = task?.taskContent
@@ -24,8 +24,12 @@ class EditTaskViewController: UIViewController {
     
     // MARK - Action Outlets
     @IBAction func editTaskButtonTapped(_ sender: Any) {
-        let taskToBeEdited = Task(isDone: false, taskContent: editTaskTextField.text ?? "", taskColor: "Blue", dueDate: editDatePicker.date, completedDate: Date())
-        
+        guard let taskToBeEdited = task,
+              let content = editTaskTextField.text,
+              !content.isEmpty
+        else { return }
+        taskToBeEdited.dueDate = editDatePicker.date
+        taskToBeEdited.taskContent = content
         TaskController.sharedTask.editTask(taskToBeEdited) { result in
             DispatchQueue.main.async {
                 switch result {

@@ -82,10 +82,8 @@ class TaskController {
                 completion(.failure(TaskError.couldNotFetch))
             }
         }
-        
-        
     }
-    
+
     func editTask(_ task: Task, completion: @escaping (Result<Task?, TaskError>) -> Void){
         // Step 3 - Define the record/s to be updated
         let record = CKRecord(task: task)
@@ -128,6 +126,11 @@ class TaskController {
         } //END ELSE
         // Step 1 - Add operation to the database
         publicDB.add(operation)
+    }
+    
+    func toggleIsDone(for task: Task, completion: @escaping (Result<Task?, TaskError>) -> Void){
+        task.isDone.toggle()
+        editTask(task, completion: completion)
     }
     
     func deleteTask(task: Task, completion: @escaping (Result<Bool, TaskError>) -> ()){

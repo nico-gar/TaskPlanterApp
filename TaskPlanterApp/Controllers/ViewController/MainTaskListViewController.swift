@@ -8,7 +8,12 @@
 import UIKit
 
 class MainTaskListViewController: UIViewController {
+//    var isDoneCount = TaskController.sharedTask.array.filter{$0 == task?.isDone}.count
+//    var plantType = "cactus"
+    
     var isDoneCount = 0
+    var plantType = "cactus"
+    
     // MARK - Outlets
     @IBOutlet weak var plantImage: UIImageView!
     @IBOutlet weak var taskListTableView: UITableView!
@@ -19,7 +24,7 @@ class MainTaskListViewController: UIViewController {
         taskListTableView.delegate = self
         taskListTableView.dataSource = self
         // you put the cloudkit number in the \(isDoneCount)
-        plantImage.image = UIImage(named: "cactus_\(isDoneCount)")
+        plantImage.image = UIImage(named: "\(plantType)_\(isDoneCount)")
         
         NotificationCenter.default.addObserver(self, selector: #selector(updateViews), name: Notification.Name("Reload table view notification"), object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(increasePlantStage), name: Notification.Name("isDoneCount plus 1"), object: nil)
@@ -118,18 +123,17 @@ extension MainTaskListViewController: UITableViewDelegate, UITableViewDataSource
 extension MainTaskListViewController {
     
     // MARK - Plant Growth
-    
     @objc func increasePlantStage(notification: Notification) {
         if isDoneCount > 0 {
             isDoneCount -= 1
 
-            plantImage.image = UIImage(named: "cactus_\(isDoneCount)")
+            plantImage.image = UIImage(named: "\(plantType)_\(isDoneCount)")
         }
     }
         @objc func decreasePlantStage(notification: Notification) {
             if isDoneCount < 24 {
                 isDoneCount += 1
-                plantImage.image = UIImage(named: "cactus_\(isDoneCount)")
+                plantImage.image = UIImage(named: "\(plantType)_\(isDoneCount)")
             }
         }
     }

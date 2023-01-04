@@ -15,9 +15,9 @@ class TaskTableViewCell: UITableViewCell {
     @IBOutlet weak var isDoneButton: UIButton!
     
     var task: Task?
-    
+        
     // MARK - Action Outlets
-    
+        
     @IBAction func isDoneButtonTapped(_ sender: UIButton) {
         
         if task?.isDone == true {

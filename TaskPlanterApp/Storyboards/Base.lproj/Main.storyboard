@@ -13,7 +13,7 @@
         <scene sceneID="WCx-yn-Yjc">
             <objects>
                 <viewController id="6ps-Y0-Dcj" customClass="AddTaskViewController" customModule="TaskPlanterApp" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="d3X-MI-N9U">
+                    <view key="view" contentMode="scaleToFill" id="d3X-MI-N9U" customClass="GradientView" customModule="TaskPlanterApp" customModuleProvider="target">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="783"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
@@ -64,6 +64,14 @@
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="seq-Ux-GSz"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <userDefinedRuntimeAttributes>
+                            <userDefinedRuntimeAttribute type="color" keyPath="FirstColor">
+                                <color key="value" red="0.99215686270000003" green="0.67450980390000004" blue="0.54117647059999996" alpha="0.8980392157" colorSpace="calibratedRGB"/>
+                            </userDefinedRuntimeAttribute>
+                            <userDefinedRuntimeAttribute type="color" keyPath="SecondColor">
+                                <color key="value" red="0.89019607840000003" green="0.50980392159999999" blue="0.31764705879999999" alpha="1" colorSpace="calibratedRGB"/>
+                            </userDefinedRuntimeAttribute>
+                        </userDefinedRuntimeAttributes>
                     </view>
                     <navigationItem key="navigationItem" id="4Xp-EV-A1N"/>
                     <connections>
@@ -169,7 +177,7 @@
                         </constraints>
                         <userDefinedRuntimeAttributes>
                             <userDefinedRuntimeAttribute type="color" keyPath="FirstColor">
-                                <color key="value" red="0.99215686274509807" green="0.67450980392156867" blue="0.54117647058823526" alpha="0.89803921568627454" colorSpace="calibratedRGB"/>
+                                <color key="value" red="0.99215686270000003" green="0.67450980390000004" blue="0.54117647059999996" alpha="0.8980392157" colorSpace="calibratedRGB"/>
                             </userDefinedRuntimeAttribute>
                             <userDefinedRuntimeAttribute type="color" keyPath="SecondColor">
                                 <color key="value" red="0.8901960784313725" green="0.50980392156862742" blue="0.31764705882352939" alpha="1" colorSpace="calibratedRGB"/>
@@ -197,29 +205,29 @@
         <scene sceneID="Ipm-wu-e8y">
             <objects>
                 <viewController storyboardIdentifier="editTaskViewController" id="EiW-nT-p0o" customClass="EditTaskViewController" customModule="TaskPlanterApp" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="XZz-9a-eVN">
+                    <view key="view" contentMode="scaleToFill" id="XZz-9a-eVN" customClass="GradientView" customModule="TaskPlanterApp" customModuleProvider="target">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="783"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="qn3-zt-HJV">
-                                <rect key="frame" x="35" y="206" width="268" height="34"/>
+                                <rect key="frame" x="36" y="109" width="268" height="34"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <datePicker contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="dateAndTime" minuteInterval="1" translatesAutoresizingMaskIntoConstraints="NO" id="Tfk-M6-cnf">
-                                <rect key="frame" x="0.0" y="309" width="392" height="108"/>
+                                <rect key="frame" x="1" y="212" width="392" height="108"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
                             </datePicker>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Prune Task" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9B0-oS-qqW">
-                                <rect key="frame" x="35" y="156" width="106" height="36"/>
+                                <rect key="frame" x="36" y="59" width="106" height="36"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" name="Noteworthy-Bold" family="Noteworthy" pointSize="22"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3IL-Pz-W0Y">
-                                <rect key="frame" x="306" y="157" width="54" height="35"/>
+                                <rect key="frame" x="307" y="60" width="54" height="35"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="plain" title="Edit"/>
@@ -229,18 +237,18 @@
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Due Date" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KXG-K5-Mx3">
-                                <rect key="frame" x="166" y="273" width="60" height="28"/>
+                                <rect key="frame" x="167" y="176" width="60" height="28"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" name="Noteworthy-Light" family="Noteworthy" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <colorWell contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="89H-Hz-fGE">
-                                <rect key="frame" x="318" y="209" width="28" height="28"/>
+                                <rect key="frame" x="319" y="112" width="28" height="28"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </colorWell>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Swipe down to cancel" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GL2-Ct-Zmg">
-                                <rect key="frame" x="121" y="743" width="150" height="18"/>
+                                <rect key="frame" x="121" y="660" width="150" height="18"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                 <nil key="textColor"/>
@@ -249,6 +257,14 @@
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="UOY-nq-ol7"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <userDefinedRuntimeAttributes>
+                            <userDefinedRuntimeAttribute type="color" keyPath="FirstColor">
+                                <color key="value" red="0.99215686270000003" green="0.67450980390000004" blue="0.54117647059999996" alpha="0.8980392157" colorSpace="calibratedRGB"/>
+                            </userDefinedRuntimeAttribute>
+                            <userDefinedRuntimeAttribute type="color" keyPath="SecondColor">
+                                <color key="value" red="0.89019607840000003" green="0.50980392159999999" blue="0.31764705879999999" alpha="1" colorSpace="calibratedRGB"/>
+                            </userDefinedRuntimeAttribute>
+                        </userDefinedRuntimeAttributes>
                     </view>
                     <connections>
                         <outlet property="editColorPicker" destination="89H-Hz-fGE" id="U4h-s7-2Qe"/>

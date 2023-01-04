@@ -56,6 +56,7 @@ class TaskController {
     func fetchTasks(completion: @escaping (_ result: Result<[Task]?, TaskError>) -> Void) {
         // Step 3 - Init the requisite predicate for the query
         let predicate = NSPredicate(value: true)
+        //line 58 add a new predicate or change it to give me largest to smallest to filter and sort the tasks
         // Step 2 - Init the requisite query for the .perform method
         let query = CKQuery(recordType: TaskConstants.recordTypeKey, predicate: predicate)
         // Step 1 - Perform a query on the database

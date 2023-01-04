@@ -23,6 +23,7 @@
 		1C44C3FF294D059400FA8569 /* TaskTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C44C3FE294D059400FA8569 /* TaskTableViewCell.swift */; };
 		1C44C401294D1A4000FA8569 /* EditTaskViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C44C400294D1A4000FA8569 /* EditTaskViewController.swift */; };
 		1C44C4052954CCA000FA8569 /* PlantError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C44C4042954CCA000FA8569 /* PlantError.swift */; };
+		1C44C4072965C1E600FA8569 /* GradientView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C44C4062965C1E600FA8569 /* GradientView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -45,6 +46,7 @@
 		1C44C3FE294D059400FA8569 /* TaskTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskTableViewCell.swift; sourceTree = "<group>"; };
 		1C44C400294D1A4000FA8569 /* EditTaskViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditTaskViewController.swift; sourceTree = "<group>"; };
 		1C44C4042954CCA000FA8569 /* PlantError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlantError.swift; sourceTree = "<group>"; };
+		1C44C4062965C1E600FA8569 /* GradientView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GradientView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -115,6 +117,7 @@
 				1C44C3FA294BE96C00FA8569 /* MainTaskListViewController.swift */,
 				1C44C3FC294CEBDF00FA8569 /* AddTaskViewController.swift */,
 				1C44C400294D1A4000FA8569 /* EditTaskViewController.swift */,
+				1C44C4062965C1E600FA8569 /* GradientView.swift */,
 			);
 			path = ViewController;
 			sourceTree = "<group>";
@@ -246,6 +249,7 @@
 				1C44C3F9294BD6CC00FA8569 /* DateExtension.swift in Sources */,
 				1C44C3F2294AA20600FA8569 /* TaskError.swift in Sources */,
 				1C44C3BF294A2AEF00FA8569 /* Plant.swift in Sources */,
+				1C44C4072965C1E600FA8569 /* GradientView.swift in Sources */,
 				1C44C4052954CCA000FA8569 /* PlantError.swift in Sources */,
 				1C44C3B72948C2AF00FA8569 /* Task.swift in Sources */,
 				1C44C39D2948C0D100FA8569 /* AppDelegate.swift in Sources */,

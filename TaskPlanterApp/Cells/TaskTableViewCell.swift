@@ -21,11 +21,11 @@ class TaskTableViewCell: UITableViewCell {
     @IBAction func isDoneButtonTapped(_ sender: UIButton) {
         
         if task?.isDone == true {
-            NotificationCenter.default.post(name: Notification.Name("isDoneCount plus 1"), object: nil)
+            NotificationCenter.default.post(name: Notification.Name("isDoneCount minus 1"), object: nil)
             isDoneButton.setImage(UIImage(systemName: "circle"), for: .normal)
             
         } else {
-            NotificationCenter.default.post(name: Notification.Name("isDoneCount minus 1"), object: nil)
+            NotificationCenter.default.post(name: Notification.Name("isDoneCount plus 1"), object: nil)
             isDoneButton.setImage(UIImage(systemName: "circle.fill"), for: .normal)
             
         }

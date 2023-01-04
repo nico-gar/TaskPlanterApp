@@ -8,27 +8,42 @@
 import UIKit
 
 class MainTaskListViewController: UIViewController {
-//    var isDoneCount = TaskController.sharedTask.array.filter{$0 == task?.isDone}.count
-//    var plantType = "cactus"
     
+
+//    var plantType = "cactus"
     var isDoneCount = 0
     var plantType = "cactus"
     
     // MARK - Outlets
     @IBOutlet weak var plantImage: UIImageView!
     @IBOutlet weak var taskListTableView: UITableView!
-    
+
     override func viewDidLoad() {
         super.viewDidLoad()
         loadData()
         taskListTableView.delegate = self
         taskListTableView.dataSource = self
         // you put the cloudkit number in the \(isDoneCount)
-        plantImage.image = UIImage(named: "\(plantType)_\(isDoneCount)")
+        
+        // MARK - gradient layer
+//        let newLayer = CAGradientLayer()
+//        newLayer.colors = [ UIColor.black.cgColor, UIColor.darkGray.cgColor]
+//        newLayer.frame = view.frame
+//        
+//        view.layer.insertSublayer(newLayer, at: 0)
+        // MARK - end gradient layer
+        
+        setupPlanetImage()
         
         NotificationCenter.default.addObserver(self, selector: #selector(updateViews), name: Notification.Name("Reload table view notification"), object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(increasePlantStage), name: Notification.Name("isDoneCount plus 1"), object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(decreasePlantStage), name: Notification.Name("isDoneCount minus 1"), object: nil)
+    }
+    
+    func setupPlanetImage() {
+        DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
+            self.plantImage.image = UIImage(named: "\(self.plantType)_\(self.getCount())")
+        }
     }
     
     // MARK - Action Outlets
@@ -46,12 +61,17 @@ class MainTaskListViewController: UIViewController {
         }
     }
     
+    ///GetCount returns an Int that reflects how many tasks have their isDone property set to true
+    func getCount() -> Int {
+        return TaskController.sharedTask.tasks.filter{$0.isDone == true}.count
+    }
+    
     func loadData(){
         TaskController.sharedTask.fetchTasks { result in
             switch result {
-            case .success(let success):
+            case .success(let task):
                 self.updateViews()
-                print(success?.count as Any)
+                print(task?.count as Any)
             case .failure(let failure):
                 print("Records were not successfully retrieved \(failure.localizedDescription)")
             }
@@ -101,14 +121,21 @@ extension MainTaskListViewController: UITableViewDelegate, UITableViewDataSource
         if editingStyle == .delete {
             let task = TaskController.sharedTask.tasks[indexPath.row]
             guard let index = TaskController.sharedTask.tasks.firstIndex(of: task) else { return }
-            TaskController.sharedTask.deleteTask(task: task) { result in
+            TaskController.sharedTask.deleteTask(task: task) { [self] result in
                 switch result {
                 case .success(_):
                     DispatchQueue.main.async {
                         TaskController.sharedTask.tasks.remove(at: index)
                         self.taskListTableView.deleteRows(at: [indexPath], with: .fade)
                     }
-                    
+                    //call function to make plant decrese the count when the task is deleted
+                    self.isDoneCount = self.getCount()
+                    if self.isDoneCount > 0 {
+                        self.isDoneCount -= 1
+                        DispatchQueue.main.async {
+                            self.plantImage.image = UIImage(named: "\(self.plantType)_\(self.isDoneCount)")
+                        }
+                    }
                 case .failure(let error):
                     print("Error in \(#function) : \(error.localizedDescription) \n---\n \(error)")
                 }
@@ -124,15 +151,17 @@ extension MainTaskListViewController {
     
     // MARK - Plant Growth
     @objc func increasePlantStage(notification: Notification) {
-        if isDoneCount > 0 {
-            isDoneCount -= 1
-
+        isDoneCount = getCount()
+            if isDoneCount < 24 {
+            isDoneCount += 1
             plantImage.image = UIImage(named: "\(plantType)_\(isDoneCount)")
         }
     }
+    
         @objc func decreasePlantStage(notification: Notification) {
-            if isDoneCount < 24 {
-                isDoneCount += 1
+            isDoneCount = getCount()
+            if isDoneCount > 0 {
+                isDoneCount -= 1
                 plantImage.image = UIImage(named: "\(plantType)_\(isDoneCount)")
             }
         }

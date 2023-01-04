@@ -24,7 +24,7 @@
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <datePicker contentMode="center" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="dateAndTime" minuteInterval="1" style="compact" translatesAutoresizingMaskIntoConstraints="NO" id="FEU-MX-KgD">
-                                <rect key="frame" x="0.0" y="212" width="393" height="108"/>
+                                <rect key="frame" x="0.0" y="212" width="392" height="108"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
                             </datePicker>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Plant New Task" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vhL-ru-rjL">
@@ -80,7 +80,7 @@
         <scene sceneID="yYb-KH-6qg">
             <objects>
                 <viewController id="CP1-ln-fpn" customClass="MainTaskListViewController" customModule="TaskPlanterApp" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="XFq-ab-WrZ">
+                    <view key="view" contentMode="scaleToFill" id="XFq-ab-WrZ" customClass="GradientView" customModule="TaskPlanterApp" customModuleProvider="target">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
@@ -167,6 +167,14 @@
                             <constraint firstItem="Kvx-1S-HOH" firstAttribute="trailing" secondItem="WA2-1Y-yYy" secondAttribute="trailing" id="dur-xG-yeC"/>
                             <constraint firstItem="Kvx-1S-HOH" firstAttribute="trailing" secondItem="gB3-Sb-LIn" secondAttribute="trailing" id="wrc-oc-Y9s"/>
                         </constraints>
+                        <userDefinedRuntimeAttributes>
+                            <userDefinedRuntimeAttribute type="color" keyPath="FirstColor">
+                                <color key="value" red="0.99215686274509807" green="0.67450980392156867" blue="0.54117647058823526" alpha="0.89803921568627454" colorSpace="calibratedRGB"/>
+                            </userDefinedRuntimeAttribute>
+                            <userDefinedRuntimeAttribute type="color" keyPath="SecondColor">
+                                <color key="value" red="0.8901960784313725" green="0.50980392156862742" blue="0.31764705882352939" alpha="1" colorSpace="calibratedRGB"/>
+                            </userDefinedRuntimeAttribute>
+                        </userDefinedRuntimeAttributes>
                     </view>
                     <navigationItem key="navigationItem" id="A2q-Wd-htK">
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="4tb-VR-Ffk">
@@ -200,7 +208,7 @@
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <datePicker contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="dateAndTime" minuteInterval="1" translatesAutoresizingMaskIntoConstraints="NO" id="Tfk-M6-cnf">
-                                <rect key="frame" x="0.0" y="309" width="393" height="108"/>
+                                <rect key="frame" x="0.0" y="309" width="392" height="108"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
                             </datePicker>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Prune Task" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9B0-oS-qqW">

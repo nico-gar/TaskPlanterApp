@@ -10,18 +10,18 @@ import UIKit
 import CloudKit
 
 class PlantController {
-
+    
     // MARK - Properties
-
+    
     static let sharedPlant = PlantController()
-
+    
     //Source of truth
     var plants: [Plant] = []
-
+    
     let publicDB = CKContainer.default().publicCloudDatabase
-
+    
     // MARK - CRUD (will only be saving and fetching the plant)
-
+    
     func savePlant(plant: Plant, completion: @escaping (_ result: Result<Plant?,PlantError>) -> Void){
         let plantRecord = CKRecord(plant: plant)
         publicDB.save(plantRecord) { (record, error) in
@@ -30,7 +30,7 @@ class PlantController {
                 completion(.failure(.ckError(error)))
                 return
             }
-
+            
             guard let record = record,
                   let savedPlant = Plant(ckRecord: record)
             else { completion(.failure(.couldNotUnwrap)); return}
@@ -72,9 +72,6 @@ class PlantController {
                 completion(.failure(PlantError.couldNotFetch))
             }
         }
-
+        
     }
 }
-
-
-

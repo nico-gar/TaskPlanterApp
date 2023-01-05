@@ -9,7 +9,7 @@ import UIKit
 
 @IBDesignable
 class GradientView: UIView {
-
+    
     @IBInspectable var FirstColor: UIColor = UIColor.clear{
         didSet {
             updateView()
@@ -33,5 +33,5 @@ class GradientView: UIView {
         layer.colors = [ FirstColor.cgColor, SecondColor.cgColor ]
         layer.locations = [ 0.3 ]
     }
-
+    
 }

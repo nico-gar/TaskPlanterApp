@@ -22,7 +22,7 @@ struct TaskConstants {
 // MARK - Class Declaration
 
 class Task: Identifiable {
-
+    
     var isDone: Bool = false
     var taskContent: String
     var taskColor: String

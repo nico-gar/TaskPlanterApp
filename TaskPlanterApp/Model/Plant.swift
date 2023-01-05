@@ -13,7 +13,7 @@ struct PlantConstants {
     static let plantStageKey = "plantStage"
     static let plantFullyGrownKey = "plantFullyGrown"
     static let RecordTypeKey = "Plant"
-
+    
 }
 
 // MARK - Class Declaration
@@ -23,7 +23,7 @@ class Plant: Identifiable {
     var plantStage: Int
     var plantFullyGrown: Bool = false
     let ckRecordID: CKRecord.ID
-
+    
     init(plantType: String, plantStage: Int, plantFullyGrown: Bool, ckRecordID: CKRecord.ID) {
         self.plantType = plantType
         self.plantStage = plantStage
@@ -58,7 +58,7 @@ extension Plant {
               let plantStage = ckRecord[PlantConstants.plantStageKey] as? Int,
               let plantFullyGrown = ckRecord[PlantConstants.plantFullyGrownKey] as? Bool
         else { return nil }
-
+        
         self.init(plantType: plantType, plantStage: plantStage, plantFullyGrown: plantFullyGrown, ckRecordID: ckRecord.recordID)
     }
 }// End of Extension

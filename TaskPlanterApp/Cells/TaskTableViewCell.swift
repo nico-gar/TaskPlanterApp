@@ -15,9 +15,9 @@ class TaskTableViewCell: UITableViewCell {
     @IBOutlet weak var isDoneButton: UIButton!
     
     var task: Task?
-        
+    
     // MARK - Action Outlets
-        
+    
     @IBAction func isDoneButtonTapped(_ sender: UIButton) {
         
         if task?.isDone == true {
@@ -30,7 +30,7 @@ class TaskTableViewCell: UITableViewCell {
             
         }
         guard let taskToBeEdited = task
-         else { return }
+        else { return }
         //calls on the edit task function applying both dueDate and taskContent
         TaskController.sharedTask.toggleIsDone(for: taskToBeEdited) { result in
             DispatchQueue.main.async {

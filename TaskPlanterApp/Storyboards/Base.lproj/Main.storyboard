@@ -124,27 +124,27 @@
                                     <constraint firstAttribute="height" constant="491" id="j2T-tf-0IK"/>
                                 </constraints>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="taskCell" rowHeight="83" id="UKH-Pc-CwG" customClass="TaskTableViewCell" customModule="TaskPlanterApp" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="50" width="393" height="83"/>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="taskCell" rowHeight="98" id="UKH-Pc-CwG" customClass="TaskTableViewCell" customModule="TaskPlanterApp" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="50" width="393" height="98"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="UKH-Pc-CwG" id="hzm-jp-bAY">
-                                            <rect key="frame" x="0.0" y="0.0" width="393" height="83"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="393" height="98"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" text="(taskContent)" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iWG-ub-4iH">
-                                                    <rect key="frame" x="39" y="4" width="350" height="51.666666666666664"/>
-                                                    <fontDescription key="fontDescription" name="Noteworthy-Light" family="Noteworthy" pointSize="15"/>
+                                                    <rect key="frame" x="39" y="4" width="350" height="70"/>
+                                                    <fontDescription key="fontDescription" name="Noteworthy-Light" family="Noteworthy" pointSize="14"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="(dueDate)" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dGV-sV-xBJ">
-                                                    <rect key="frame" x="38" y="59.666666666666664" width="351" height="19.333333333333336"/>
-                                                    <fontDescription key="fontDescription" name="Noteworthy-Light" family="Noteworthy" pointSize="12"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="(dueDate)" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dGV-sV-xBJ">
+                                                    <rect key="frame" x="38" y="78" width="351" height="16"/>
+                                                    <fontDescription key="fontDescription" name="Noteworthy-Light" family="Noteworthy" pointSize="10"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ssG-OM-OJH">
-                                                    <rect key="frame" x="4" y="4" width="25" height="71"/>
+                                                    <rect key="frame" x="4" y="4" width="25" height="86"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" secondItem="ssG-OM-OJH" secondAttribute="height" multiplier="1:1" id="2lO-Ju-Asm"/>
                                                         <constraint firstAttribute="width" constant="25" id="Uak-K9-mH2"/>
@@ -153,6 +153,7 @@
                                                     <buttonConfiguration key="configuration" style="plain">
                                                         <imageReference key="image" image="circle" catalog="system" renderingMode="original"/>
                                                         <preferredSymbolConfiguration key="preferredSymbolConfigurationForImage" scale="small"/>
+                                                        <color key="baseForegroundColor" red="0.47450980390000003" green="0.33333333329999998" blue="0.28235294119999998" alpha="1" colorSpace="calibratedRGB"/>
                                                     </buttonConfiguration>
                                                     <connections>
                                                         <action selector="isDoneButtonTapped:" destination="UKH-Pc-CwG" eventType="touchUpInside" id="Xuh-gI-PfD"/>

@@ -82,7 +82,6 @@ class MainTaskListViewController: UIViewController {
         
         navigationController?.present(editTaskViewController, animated: true)
     }
-    
 }
 
 extension MainTaskListViewController: UITableViewDelegate, UITableViewDataSource {
@@ -101,12 +100,12 @@ extension MainTaskListViewController: UITableViewDelegate, UITableViewDataSource
         // add the dueDate
         
         // MARK - cell UI edits
-
+        
         cell.layer.cornerRadius = 5
         cell.layer.masksToBounds = true
         cell.backgroundColor = .clear
         cell.backgroundColor = UIColor(white: 1, alpha: 0.1)
-   
+        
         // MARK - end cell UI edits
         
         return cell
@@ -143,7 +142,6 @@ extension MainTaskListViewController: UITableViewDelegate, UITableViewDataSource
             // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view.
         }
     }
-    
 }
 
 extension MainTaskListViewController {
@@ -165,9 +163,9 @@ extension MainTaskListViewController {
         }
     }
 }
-// MARK - tableview gradiant
+// MARK - UI tableview edits for gradiant color
 extension UIView {
-
+    
     /**
      An extension on UIView that renders a gradient on a UITableView
      

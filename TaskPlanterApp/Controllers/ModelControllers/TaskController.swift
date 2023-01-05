@@ -44,11 +44,11 @@ class TaskController {
                   let savedTask = Task(ckRecord: record)
             else { completion(.failure(.couldNotUnwrap)); return}
             print("new Task saved successfully")
-            ///add Task to local SoT
+            //add Task to local SoT
             self.tasks.insert(savedTask, at: 0)
-            ///the save task function in the TaskController class triggers the NotificationCenter post which is sent to the NotificationCenter Observer in the MainTaskListViewController class and that triggers the updateviews function located in that class.
+            //the save task function in the TaskController class triggers the NotificationCenter post which is sent to the NotificationCenter Observer in the MainTaskListViewController class and that triggers the updateviews function located in that class.
             NotificationCenter.default.post(name: Notification.Name("Reload table view notification"), object: nil)
-            ///complete successfully with new Task object
+            //complete successfully with new Task object
             completion(.success(savedTask))
         }
     }
@@ -57,6 +57,7 @@ class TaskController {
         // Step 3 - Init the requisite predicate for the query
         let predicate = NSPredicate(value: true)
         //line 58 add a new predicate or change it to give me largest to smallest to filter and sort the tasks
+
         // Step 2 - Init the requisite query for the .perform method
         let query = CKQuery(recordType: TaskConstants.recordTypeKey, predicate: predicate)
         // Step 1 - Perform a query on the database

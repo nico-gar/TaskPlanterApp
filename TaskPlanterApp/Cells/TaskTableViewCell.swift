@@ -43,7 +43,7 @@ class TaskTableViewCell: UITableViewCell {
             }
         }
     }
-    //this is the function that will populate each custom cell with the information i need. the isDoneButton also needs to be populated here.
+    //this is the function that will populate each custom cell with the information i need. the isDoneButton also will be populated here.
     func configure(with task: Task) {
         let image = task.isDone ? UIImage(systemName: "circle.fill") : UIImage(systemName: "circle")
         isDoneButton.setImage(image, for: .normal)

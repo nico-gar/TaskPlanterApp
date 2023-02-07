@@ -128,7 +128,7 @@ extension MainTaskListViewController: UITableViewDelegate, UITableViewDataSource
                     }
                     //call function to make plant decrese the count when the task is deleted
                     self.isDoneCount = self.getCount()
-                    if self.isDoneCount > 0 {
+                    if self.isDoneCount > 0 && task.isDone == false {
                         self.isDoneCount -= 1
                         DispatchQueue.main.async {
                             self.plantImage.image = UIImage(named: "\(self.plantType)_\(self.isDoneCount)")

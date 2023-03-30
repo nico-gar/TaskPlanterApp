@@ -63,7 +63,7 @@ class TaskController {
         // Step 2 - Init the requisite query for the .perform method
         let query = CKQuery(recordType: TaskConstants.recordTypeKey, predicate: predicate)
         // sorts custom cell list by key
-        query.sortDescriptors = [NSSortDescriptor(key: "dueDate", ascending: true)]
+        query.sortDescriptors = [NSSortDescriptor(key: "isDone", ascending: true)]
         // Step 1 - Perform a query on the database
         publicDB.fetch(withQuery: query) { result in
             switch result {
@@ -79,6 +79,7 @@ class TaskController {
                     return nil }
                 }
                 // Set our source of truth (push unwrapped found records into tasks array or [Task]
+                // create function that takes an array of tasks (unsorted) as an argument and write code that sorts and returns the array of arrays.
                 self.tasks = fetchedTasks
                 completion(.success(fetchedTasks))
                 print("Fetched all Tasks")

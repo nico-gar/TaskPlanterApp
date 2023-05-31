@@ -18,13 +18,13 @@ class PlantController {
     //Source of truth
     var plants: [Plant] = []
     
-    let publicDB = CKContainer.default().publicCloudDatabase
+    let privateDB = CKContainer.default().privateCloudDatabase
     
     // MARK - CRUD (will only be saving and fetching the plant)
     
     func savePlant(plant: Plant, completion: @escaping (_ result: Result<Plant?,PlantError>) -> Void){
         let plantRecord = CKRecord(plant: plant)
-        publicDB.save(plantRecord) { (record, error) in
+        privateDB.save(plantRecord) { (record, error) in
             if let error = error {
                 print("Error in \(#function) : \(error.localizedDescription) \n---\n \(error)")
                 completion(.failure(.ckError(error)))
@@ -49,7 +49,7 @@ class PlantController {
         // Step 2 - Init the requisite query for the .perform method
         let query = CKQuery(recordType: PlantConstants.RecordTypeKey, predicate: predicate)
         // Step 1 - Perform a query on the database
-        publicDB.fetch(withQuery: query) { result in
+        privateDB.fetch(withQuery: query) { result in
             switch result {
             case .success(let (matchResults, _)):
                 // Compact map (or loop) through the found records to return the non-nil Plant objects compact map loops through the array of objects.

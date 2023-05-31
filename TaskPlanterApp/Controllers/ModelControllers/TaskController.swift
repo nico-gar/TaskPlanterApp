@@ -19,7 +19,7 @@ class TaskController {
     
     // MARK - Property
     /// Constant to access public cloud database
-    let publicDB = CKContainer.default().publicCloudDatabase
+    let privateDB = CKContainer.default().privateCloudDatabase
     
     // MARK - CRUD
     
@@ -33,7 +33,7 @@ class TaskController {
     
     func saveTask(task: Task, completion: @escaping (_ result: Result<Task?,TaskError>) -> Void){
         let taskRecord = CKRecord(task: task)
-        publicDB.save(taskRecord) { (record, error) in
+        privateDB.save(taskRecord) { (record, error) in
             if let error = error {
                 print("Error in \(#function) : \(error.localizedDescription) \n---\n \(error)")
                 completion(.failure(.ckError(error)))
@@ -65,7 +65,7 @@ class TaskController {
         // sorts custom cell list by key
         query.sortDescriptors = [NSSortDescriptor(key: "isDone", ascending: true)]
         // Step 1 - Perform a query on the database
-        publicDB.fetch(withQuery: query) { result in
+        privateDB.fetch(withQuery: query) { result in
             switch result {
             case .success(let (matchResults, _)):
                 // Compact map (or loop) through the found records to return the non-nil Task objects compact map loops through the array of objects.
@@ -132,7 +132,7 @@ class TaskController {
             }
         } //END ELSE
         // Step 1 - Add operation to the database
-        publicDB.add(operation)
+        privateDB.add(operation)
     }
     
     func toggleIsDone(for task: Task, completion: @escaping (Result<Task?, TaskError>) -> Void){
@@ -176,7 +176,7 @@ class TaskController {
             }
         }//END ELSE
         // Step 1 - Add operation to the database
-        publicDB.add(operation)
+        privateDB.add(operation)
     }
     
 } // End of Class
